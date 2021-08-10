@@ -1,0 +1,8 @@
+.col1of2 {
+  width: calc((100% - #{$gutter-horizontal}) / 2);
+  float: left;
+
+  &:not(:last-child) {
+    margin-right: $gutter-horizontal;
+  }
+}
