@@ -26,9 +26,12 @@ import BookForm from "../components/section-book/book-form/book-form";
 import Form from "../components/form/form";
 import { useState } from "react";
 import Footer from "../components/footer/footer";
+import Navigation from "../components/navigation/navigation";
+import PopUp from "../components/pop-up/pop-up";
 
 export default function Home() {
   const [formData, setFormData] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   return (
     <div>
@@ -40,6 +43,8 @@ export default function Home() {
       </Head>
 
       <div className={styles.body}>
+        <Navigation />
+
         <Header />
 
         <main>
@@ -94,6 +99,7 @@ export default function Home() {
                   img_url="img/nat-5.jpg"
                   order="first"
                   price="297"
+                  handleShowingPopup={() => setShowPopup(true)}
                 >
                   <ul>
                     <li>3 day tours</li>
@@ -110,6 +116,7 @@ export default function Home() {
                   img_url="img/nat-6.jpg"
                   order="second"
                   price="497"
+                  handleShowingPopup={() => setShowPopup(true)}
                 >
                   <ul>
                     <li>7 day tours</li>
@@ -126,6 +133,7 @@ export default function Home() {
                   img_url="img/nat-7.jpg"
                   order="third"
                   price="897"
+                  handleShowingPopup={() => setShowPopup(true)}
                 >
                   <ul>
                     <li>5 day tours</li>
@@ -191,13 +199,21 @@ export default function Home() {
                   <HeadingSecondary className="u-margin-top-small">
                     Start booking now
                   </HeadingSecondary>
-                  <Form data={formData} handleFormData={setFormData} className="u-margin-top-medium" />
+                  <Form
+                    data={formData}
+                    handleFormData={setFormData}
+                    className="u-margin-top-medium"
+                  />
                 </BookForm>
               </Book>
             </Row>
           </SectionBook>
 
           <Footer />
+
+          {showPopup ? (
+            <PopUp onShowingPopup={() => setShowPopup(false)} />
+          ) : null}
         </main>
       </div>
     </div>

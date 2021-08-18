@@ -6,6 +6,7 @@ function MainButton(props) {
       className={`${styles.btn} ${props.white ? styles.white : ""} ${
         props.green ? styles.green : ""
       } ${props.animated ? styles.animated : ""}`}
+      onClick={props.onClick}
     >
       {props.children}
     </button>

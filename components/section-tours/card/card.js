@@ -9,7 +9,7 @@ function Front({ styles, children }) {
   return <div className={`${styles.side} ${styles.front}`}>{children}</div>;
 }
 
-function Card({ title, img_url, order, price, children }) {
+function Card({ title, img_url, order, price, handleShowingPopup, children }) {
   return (
     <div className={styles.card}>
       <Front styles={styles}>
@@ -24,7 +24,7 @@ function Card({ title, img_url, order, price, children }) {
             <p className={styles.cardPriceOnly}>Only</p>
             <p className={styles.cardPriceValue}>${price}</p>
           </div>
-          <MainButton white={true}>Book now!</MainButton>
+          <MainButton white={true} isButton={true} onClick={handleShowingPopup}>Book now!</MainButton>
         </div>
       </Back>
     </div>
